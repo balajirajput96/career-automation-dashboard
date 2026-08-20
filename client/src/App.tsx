@@ -13,6 +13,7 @@ import Notifications from "./pages/Notifications";
 import GoogleLogin from "./pages/GoogleLogin";
 import { useAuth } from "./_core/hooks/useAuth";
 import { Loader2 } from "lucide-react";
+import DashboardLayout from "./components/DashboardLayout";
 
 function Router() {
   const { user, loading, isAuthenticated } = useAuth();
@@ -33,16 +34,18 @@ function Router() {
   }
 
   return (
-    <Switch>
-      <Route path="/" component={DashboardHome} />
-      <Route path="/jobs" component={Jobs} />
-      <Route path="/tracker" component={Tracker} />
-      <Route path="/profile" component={Profile} />
-      <Route path="/logs" component={Logs} />
-      <Route path="/notifications" component={Notifications} />
-      <Route path="/404" component={NotFound} />
-      <Route component={NotFound} />
-    </Switch>
+    <DashboardLayout>
+      <Switch>
+        <Route path="/" component={DashboardHome} />
+        <Route path="/jobs" component={Jobs} />
+        <Route path="/tracker" component={Tracker} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/logs" component={Logs} />
+        <Route path="/notifications" component={Notifications} />
+        <Route path="/404" component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
+    </DashboardLayout>
   );
 }
 

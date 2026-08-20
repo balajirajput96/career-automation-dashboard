@@ -20,3 +20,5 @@
 - [x] Fix the unauthenticated loading state so the Google sign-in page is reachable
 - [x] Replace hard-coded account names in the signed-in dashboard with the active user identity
 - [ ] Verify the Google OAuth redirect and authenticated dashboard flow on the production URL
+- [x] Restore the authenticated dashboard sidebar and navigation shell around all career pages
+- [x] Align signed-in copy with the active account and verified-only job discovery behavior

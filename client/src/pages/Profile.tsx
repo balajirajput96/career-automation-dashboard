@@ -60,7 +60,7 @@ export default function ProfilePage() {
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Profile & Resume Configuration</h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Configure Balaji's professional background and AI matching threshold to power accurate job scoring.
+          Add your verified background and choose an AI match threshold for more accurate job scoring.
         </p>
       </div>
 

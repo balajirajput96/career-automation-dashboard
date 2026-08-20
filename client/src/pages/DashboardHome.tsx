@@ -35,7 +35,7 @@ export default function DashboardHomePage() {
           </Badge>
           <h1 className="text-3xl font-bold tracking-tight">Welcome back, {displayName}</h1>
           <p className="text-muted-foreground max-w-2xl text-sm leading-relaxed">
-            Your automated career pipeline is actively tracking Pharmaceutical QA and AI & Python engineering opportunities with intelligent AI match scoring.
+            Organize verified Pharmaceutical QA and AI & Python opportunities, then use AI scoring to prioritize your next application.
           </p>
         </div>
         <Button

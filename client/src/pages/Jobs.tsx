@@ -76,7 +76,7 @@ export default function JobsPage() {
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Job Discovery & Pipeline</h1>
           <p className="text-sm text-muted-foreground mt-1">
-            Explore curated vacancies across Pharmaceutical and AI & Python tracks with AI match scoring.
+            Track verified vacancies across Pharmaceutical and AI & Python tracks with AI match scoring.
           </p>
         </div>
         <Dialog open={isAddOpen} onOpenChange={setIsAddOpen}>
@@ -176,7 +176,7 @@ export default function JobsPage() {
             <Sparkles className="w-12 h-12 text-primary mx-auto opacity-50" />
             <h3 className="text-lg font-semibold">No job vacancies found</h3>
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
-              Run automated discovery from the dashboard or add a custom job vacancy to start tracking your pipeline.
+              Add a verified job posting with its URL and description to start tracking your pipeline.
             </p>
           </CardContent>
         </Card>
