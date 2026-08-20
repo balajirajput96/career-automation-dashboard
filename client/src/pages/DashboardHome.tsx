@@ -5,14 +5,17 @@ import { Badge } from "@/components/ui/badge";
 import { Briefcase, Send, Calendar, Sparkles, RefreshCw, ArrowRight, CheckCircle2, TrendingUp } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import { useAuth } from "@/_core/hooks/useAuth";
 
 export default function DashboardHomePage() {
+  const { user } = useAuth();
+  const displayName = user?.name?.trim() || "there";
   const utils = trpc.useUtils();
   const { data: stats, isLoading: statsLoading } = trpc.career.getStats.useQuery();
   const { data: jobs, isLoading: jobsLoading } = trpc.career.listJobs.useQuery({ status: "Discovered" });
   const triggerDiscoveryMutation = trpc.career.triggerDiscovery.useMutation({
     onSuccess: (data) => {
-      toast.success(`Discovery run complete! Found ${data.addedCount} new matching job vacancies.`);
+      toast.success(data.message ?? `Discovery run complete! Found ${data.addedCount} new matching job vacancies.`);
       utils.career.listJobs.invalidate();
       utils.career.getStats.invalidate();
       utils.career.listLogs.invalidate();
@@ -28,9 +31,9 @@ export default function DashboardHomePage() {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-gradient-to-r from-primary/10 via-primary/5 to-card p-8 rounded-3xl border border-primary/20 shadow-sm">
         <div className="space-y-2">
           <Badge variant="outline" className="bg-primary/10 text-primary border-primary/30 font-medium">
-            LinkedIn-First Career Automation for Balaji Rajput
+            LinkedIn-First Career Automation
           </Badge>
-          <h1 className="text-3xl font-bold tracking-tight">Welcome back, Balaji</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Welcome back, {displayName}</h1>
           <p className="text-muted-foreground max-w-2xl text-sm leading-relaxed">
             Your automated career pipeline is actively tracking Pharmaceutical QA and AI & Python engineering opportunities with intelligent AI match scoring.
           </p>
@@ -113,7 +116,7 @@ export default function DashboardHomePage() {
             <CardContent className="space-y-3">
               <Sparkles className="w-10 h-10 text-primary mx-auto opacity-50" />
               <h3 className="font-semibold">No discovered jobs currently</h3>
-              <p className="text-sm text-muted-foreground">Click "Run Job Discovery Now" above to fetch new vacancies.</p>
+              <p className="text-sm text-muted-foreground">Run discovery to check verified sources, or add a verified job posting from the Jobs page.</p>
             </CardContent>
           </Card>
         ) : (

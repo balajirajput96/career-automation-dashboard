@@ -11,3 +11,12 @@
 - [x] Build Automation logs page showing cron execution history (replacing n8n)
 - [x] Build Notification settings and alert center with configurable threshold
 - [x] Add Vitest test suite and perform visual verification
+- [x] Repair the production startup path so the service binds to the assigned TCP port
+- [x] Review and incorporate applicable instructions from pasted_content.txt
+- [ ] Confirm the scheduled job-discovery task targets the deployed site securely
+- [ ] Re-run automated tests and visually verify all main user journeys on a live preview
+- [x] Isolate jobs and automation history by signed-in account
+- [x] Remove unverified sample listings from manual and scheduled discovery flows
+- [x] Fix the unauthenticated loading state so the Google sign-in page is reachable
+- [x] Replace hard-coded account names in the signed-in dashboard with the active user identity
+- [ ] Verify the Google OAuth redirect and authenticated dashboard flow on the production URL

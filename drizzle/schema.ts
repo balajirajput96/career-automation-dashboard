@@ -14,7 +14,7 @@ export const users = mysqlTable("users", {
 
 export const profiles = mysqlTable("profiles", {
   id: int("id").autoincrement().primaryKey(),
-  userId: int("userId").notNull(),
+  userId: int("userId").notNull().unique(),
   fullName: varchar("fullName", { length: 255 }).default("Balaji Dilip Singh Rajput").notNull(),
   headline: text("headline"),
   summary: text("summary"),
@@ -27,6 +27,7 @@ export const profiles = mysqlTable("profiles", {
 
 export const jobs = mysqlTable("jobs", {
   id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
   title: varchar("title", { length: 255 }).notNull(),
   company: varchar("company", { length: 255 }).notNull(),
   location: varchar("location", { length: 255 }).notNull(),
@@ -44,6 +45,7 @@ export const jobs = mysqlTable("jobs", {
 
 export const automationLogs = mysqlTable("automation_logs", {
   id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
   runTime: timestamp("runTime").defaultNow().notNull(),
   status: mysqlEnum("status", ["Success", "Failed", "Running"]).default("Success").notNull(),
   jobsFound: int("jobsFound").default(0).notNull(),

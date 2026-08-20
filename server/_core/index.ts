@@ -2,13 +2,11 @@ import express, { type Request, type Response } from "express";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
-import { setupVite } from "./vite";
+import { serveStatic, setupVite } from "./vite";
 import { registerStorageProxy } from "./storageProxy";
 import { registerOAuthRoutes } from "./oauth";
 import { scheduledDiscoveryHandler } from "./scheduledDiscovery";
 import http from "http";
-import path from "path";
-import fs from "fs";
 
 export async function createServer() {
   const app = express();
@@ -29,12 +27,22 @@ export async function createServer() {
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
   } else {
-    const publicPath = path.resolve(__dirname, "../../dist");
-    app.use(express.static(publicPath));
-    app.get("*", (_req, res) => {
-      res.sendFile(path.join(publicPath, "index.html"));
-    });
+    serveStatic(app);
   }
 
   return { app, server };
 }
+
+async function startServer() {
+  const { server } = await createServer();
+  const port = Number.parseInt(process.env.PORT ?? "3000", 10);
+
+  server.listen(port, "0.0.0.0", () => {
+    console.log(`Server running on http://localhost:${port}/`);
+  });
+}
+
+void startServer().catch((error) => {
+  console.error("Failed to start server", error);
+  process.exit(1);
+});

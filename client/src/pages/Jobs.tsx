@@ -55,17 +55,17 @@ export default function JobsPage() {
 
   const handleAddSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newTitle || !newCompany || !newDesc) {
-      toast.error("Please fill in title, company, and description.");
+    if (!newTitle || !newCompany || !newDesc || !newUrl) {
+      toast.error("Please add the verified posting URL, title, company, and description.");
       return;
     }
     addJobMutation.mutate({
       title: newTitle,
       company: newCompany,
-      location: newLocation || "Remote",
+      location: newLocation || "Not publicly verified",
       track: newTrack,
       remoteEligibility: newRemote,
-      jobUrl: newUrl || "https://www.linkedin.com/jobs",
+      jobUrl: newUrl,
       description: newDesc,
     });
   };
@@ -122,8 +122,8 @@ export default function JobsPage() {
                   <Input placeholder="e.g. India eligible / Worldwide" value={newRemote} onChange={e => setNewRemote(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>Job URL</Label>
-                  <Input placeholder="https://linkedin.com/jobs/..." value={newUrl} onChange={e => setNewUrl(e.target.value)} />
+                  <Label>Verified Job URL</Label>
+                  <Input type="url" placeholder="https://linkedin.com/jobs/..." value={newUrl} onChange={e => setNewUrl(e.target.value)} required />
                 </div>
               </div>
               <div className="space-y-2">

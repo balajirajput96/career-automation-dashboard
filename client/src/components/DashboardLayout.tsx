@@ -122,7 +122,7 @@ function DashboardLayoutContent({
             {!isCollapsed && (
               <div className="flex flex-col truncate">
                 <span className="font-bold text-sm truncate">Career Automation</span>
-                <span className="text-[11px] text-muted-foreground truncate">Balaji Rajput</span>
+                <span className="text-[11px] text-muted-foreground truncate">{user.name || "Your workspace"}</span>
               </div>
             )}
           </div>
@@ -162,7 +162,7 @@ function DashboardLayoutContent({
                 </Avatar>
                 {!isCollapsed && (
                   <div className="flex flex-col truncate flex-1">
-                    <span className="text-xs font-semibold truncate">{user.name || "Balaji"}</span>
+                    <span className="text-xs font-semibold truncate">{user.name || "Account"}</span>
                     <span className="text-[10px] text-muted-foreground truncate">{user.email || "Active Pipeline"}</span>
                   </div>
                 )}
