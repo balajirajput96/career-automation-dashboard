@@ -22,3 +22,4 @@
 - [x] Verify the Google OAuth redirect URL and document the external browser-provider limitation
 - [x] Restore the authenticated dashboard sidebar and navigation shell around all career pages
 - [x] Align signed-in copy with the active account and verified-only job discovery behavior
+- [ ] Export the completed dashboard repository to a private GitHub repository
