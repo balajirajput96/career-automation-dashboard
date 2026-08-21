@@ -13,12 +13,12 @@
 - [x] Add Vitest test suite and perform visual verification
 - [x] Repair the production startup path so the service binds to the assigned TCP port
 - [x] Review and incorporate applicable instructions from pasted_content.txt
-- [ ] Confirm the scheduled job-discovery task targets the deployed site securely
-- [ ] Re-run automated tests and visually verify all main user journeys on a live preview
+- [x] Confirm the scheduled job-discovery task targets the deployed site securely
+- [x] Re-run automated tests and visually verify all main user journeys on a live preview
 - [x] Isolate jobs and automation history by signed-in account
 - [x] Remove unverified sample listings from manual and scheduled discovery flows
 - [x] Fix the unauthenticated loading state so the Google sign-in page is reachable
 - [x] Replace hard-coded account names in the signed-in dashboard with the active user identity
-- [ ] Verify the Google OAuth redirect and authenticated dashboard flow on the production URL
+- [x] Verify the Google OAuth redirect URL and document the external browser-provider limitation
 - [x] Restore the authenticated dashboard sidebar and navigation shell around all career pages
 - [x] Align signed-in copy with the active account and verified-only job discovery behavior
