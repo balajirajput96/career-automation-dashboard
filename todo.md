@@ -27,3 +27,4 @@
 - [x] Add a bounded hourly GitHub maintenance workflow with a 2,400-cycle state record
 - [x] Add reproducible repository health checks and operational documentation
 - [ ] Validate the initial maintenance cycle locally and in GitHub Actions
+- [ ] Fix the GitHub Actions pnpm setup conflict discovered during the first CI run
