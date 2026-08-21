@@ -23,3 +23,7 @@
 - [x] Restore the authenticated dashboard sidebar and navigation shell around all career pages
 - [x] Align signed-in copy with the active account and verified-only job discovery behavior
 - [x] Export the completed dashboard repository to a private GitHub repository
+- [x] Audit accessible project history, Git state, GitHub state, and existing automation without exposing secrets
+- [x] Add a bounded hourly GitHub maintenance workflow with a 2,400-cycle state record
+- [x] Add reproducible repository health checks and operational documentation
+- [ ] Validate the initial maintenance cycle locally and in GitHub Actions

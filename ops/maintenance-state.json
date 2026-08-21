@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "maximumCycles": 2400,
+  "cycleCount": 0,
+  "completed": false,
+  "status": "idle",
+  "startedAt": null,
+  "updatedAt": null,
+  "lastCycle": null
+}

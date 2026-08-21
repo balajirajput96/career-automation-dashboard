@@ -1,0 +1,122 @@
+name: Hourly Maintenance
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: career-dashboard-hourly-maintenance
+  cancel-in-progress: false
+
+env:
+  MAXIMUM_MAINTENANCE_CYCLES: "2400"
+  PRODUCTION_URL: "https://balajidash-epamvccj.manus.space"
+
+jobs:
+  preflight:
+    name: Check remaining maintenance budget
+    runs-on: ubuntu-latest
+    outputs:
+      proceed: ${{ steps.limit.outputs.proceed }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Stop after the bounded cycle limit
+        id: limit
+        run: |
+          result="$(node scripts/maintenance/run-cycle.mjs can-run --max "$MAXIMUM_MAINTENANCE_CYCLES")"
+          echo "$result"
+          node -e 'const result = JSON.parse(process.argv[1]); require("fs").appendFileSync(process.env.GITHUB_OUTPUT, `proceed=${result.proceed}\n`)' "$result"
+
+  validate:
+    name: Validate repository and public health
+    needs: preflight
+    if: needs.preflight.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.4.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies with bounded retry
+        run: |
+          for attempt in 1 2 3; do
+            if pnpm install --frozen-lockfile; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              exit 1
+            fi
+            sleep $((attempt * 10))
+          done
+
+      - name: Type check
+        run: pnpm run check
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Build production bundle
+        run: pnpm run build
+
+      - name: Verify the public dashboard responds
+        run: curl --fail --location --retry 3 --retry-all-errors --retry-delay 5 --max-time 30 "$PRODUCTION_URL"
+
+  record:
+    name: Record maintenance outcome
+    needs: [preflight, validate]
+    if: always() && needs.preflight.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Append the machine-readable execution record
+        run: |
+          node scripts/maintenance/run-cycle.mjs record \
+            --max "$MAXIMUM_MAINTENANCE_CYCLES" \
+            --status "${{ needs.validate.result }}" \
+            --run-id "${{ github.run_id }}" \
+            --commit "${{ github.sha }}" \
+            --workflow "${{ github.workflow }}"
+
+      - name: Commit the maintenance record when it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ops/maintenance-state.json ops/maintenance-history.jsonl
+          if git diff --cached --quiet; then
+            echo "No maintenance state changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: record maintenance cycle ${{ github.run_id }}"
+          git push origin HEAD:main
