@@ -1,0 +1,46 @@
+name: Validate Maintenance Change
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/hourly-maintenance.yml"
+      - "scripts/maintenance/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate bounded state push
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate maintenance scripts
+        run: |
+          bash -n scripts/maintenance/push-state-with-retry.sh
+          bash -n scripts/maintenance/test-push-state-with-retry.sh
+          bash scripts/maintenance/test-push-state-with-retry.sh
+
+      - name: Run repository checks
+        run: |
+          pnpm check
+          pnpm test
+          pnpm build
