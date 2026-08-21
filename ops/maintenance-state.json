@@ -1,10 +1,17 @@
 {
   "schemaVersion": 1,
   "maximumCycles": 2400,
-  "cycleCount": 0,
+  "cycleCount": 1,
   "completed": false,
-  "status": "idle",
-  "startedAt": null,
-  "updatedAt": null,
-  "lastCycle": null
+  "status": "success",
+  "startedAt": "2026-08-21T23:12:45.286Z",
+  "updatedAt": "2026-08-21T23:12:45.286Z",
+  "lastCycle": {
+    "cycle": 1,
+    "status": "success",
+    "timestamp": "2026-08-21T23:12:45.286Z",
+    "workflowRunId": "32535955048",
+    "commit": "53bbe18556d893eaca04661d21efe204258590e0",
+    "workflow": "Hourly Maintenance"
+  }
 }
