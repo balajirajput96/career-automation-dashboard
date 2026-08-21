@@ -107,14 +107,14 @@ jobs:
             --commit "${{ github.sha }}" \
             --workflow "${{ github.workflow }}"
 
-      - name: Commit the maintenance record when it changed
+      - name: Commit the maintenance record with bounded push retries
+        env:
+          MAINTENANCE_PUSH_ATTEMPTS: "3"
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add ops/maintenance-state.json ops/maintenance-history.jsonl
-          if git diff --cached --quiet; then
-            echo "No maintenance state changes to commit."
-            exit 0
-          fi
-          git commit -m "chore: record maintenance cycle ${{ github.run_id }}"
-          git push origin HEAD:main
+          bash scripts/maintenance/push-state-with-retry.sh \
+            "${{ needs.validate.result }}" \
+            "${{ github.run_id }}" \
+            "${{ github.sha }}" \
+            "${{ github.workflow }}"
