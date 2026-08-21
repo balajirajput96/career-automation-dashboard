@@ -26,5 +26,5 @@
 - [x] Audit accessible project history, Git state, GitHub state, and existing automation without exposing secrets
 - [x] Add a bounded hourly GitHub maintenance workflow with a 2,400-cycle state record
 - [x] Add reproducible repository health checks and operational documentation
-- [ ] Validate the initial maintenance cycle locally and in GitHub Actions
-- [ ] Fix the GitHub Actions pnpm setup conflict discovered during the first CI run
+- [x] Validate the initial maintenance cycle locally and in GitHub Actions
+- [x] Fix the GitHub Actions pnpm setup conflict discovered during the first CI run
