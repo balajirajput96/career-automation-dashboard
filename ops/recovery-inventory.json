@@ -20,5 +20,14 @@
     "maintenanceState": "ops/maintenance-state.json",
     "maintenanceHistory": "ops/maintenance-history.jsonl",
     "operationsGuide": "docs/OPERATIONS.md"
-  }
+  },
+  "crossRepositoryReferences": [
+    {
+      "repository": "balajirajput96/github-engineering-audit",
+      "purpose": "Private redacted engineering-audit system",
+      "verifiedWorkflow": "Validate redacted engineering audit",
+      "reusedPattern": "Tracked-source credential-pattern guard",
+      "localIntegration": "scripts/maintenance/assert-no-secrets.sh and Continuous Integration workflow"
+    }
+  ]
 }
