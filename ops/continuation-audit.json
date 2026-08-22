@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "maintenanceState": {
+    "cycleCountAtAudit": 1,
+    "maximumCycles": 2400,
+    "lastRecordedStatus": "success"
+  },
+  "repository": {
+    "sourceOfTruth": "private GitHub main branch",
+    "maintenanceWorkflows": [
+      "Continuous Integration",
+      "Hourly Maintenance",
+      "Validate Maintenance Change"
+    ]
+  },
+  "integrationFindings": [
+    {
+      "name": "n8n API",
+      "verification": "Configured API probe returned HTTP 404 without exposing credentials.",
+      "disposition": "Quarantined from dashboard and GitHub maintenance execution; no automatic retry is attempted."
+    },
+    {
+      "name": "Google Workspace CLI",
+      "verification": "CLI help and local command references were generated without accessing user files.",
+      "disposition": "Available for future Drive, Docs, Sheets, and Slides work when explicitly needed."
+    },
+    {
+      "name": "GitHub Dependabot alerts API",
+      "verification": "The current token returned HTTP 403 for alert enumeration.",
+      "disposition": "The repository now produces a local pnpm audit summary artifact during maintenance instead of assuming alert access."
+    }
+  ],
+  "securityBoundary": "No credentials, session cookies, user data, environment values, or raw package advisory details are stored in this record."
+}

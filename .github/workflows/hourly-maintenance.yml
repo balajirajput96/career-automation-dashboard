@@ -81,9 +81,51 @@ jobs:
       - name: Verify the public dashboard responds
         run: curl --fail --location --retry 3 --retry-all-errors --retry-delay 5 --max-time 30 "$PRODUCTION_URL"
 
+  dependency-audit:
+    name: Produce dependency-security summary
+    needs: preflight
+    if: needs.preflight.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies with bounded retry
+        run: |
+          for attempt in 1 2 3; do
+            if pnpm install --frozen-lockfile; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              exit 1
+            fi
+            sleep $((attempt * 10))
+          done
+
+      - name: Generate a normalized dependency-security summary
+        run: node scripts/maintenance/dependency-audit.mjs --output maintenance-artifacts/dependency-audit.json
+
+      - name: Upload the dependency-security summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-security-summary-${{ github.run_id }}
+          path: maintenance-artifacts/dependency-audit.json
+          if-no-files-found: error
+          retention-days: 30
+
   record:
     name: Record maintenance outcome
-    needs: [preflight, validate]
+    needs: [preflight, validate, dependency-audit]
     if: always() && needs.preflight.outputs.proceed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -114,7 +156,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           bash scripts/maintenance/push-state-with-retry.sh \
-            "${{ needs.validate.result }}" \
+            "${{ needs.validate.result == 'success' && needs.dependency-audit.result == 'success' && 'success' || 'failure' }}" \
             "${{ github.run_id }}" \
             "${{ github.sha }}" \
             "${{ github.workflow }}"

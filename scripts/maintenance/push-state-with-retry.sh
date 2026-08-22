@@ -10,8 +10,8 @@ max_attempts="${MAINTENANCE_PUSH_ATTEMPTS:-3}"
 for attempt in $(seq 1 "$max_attempts"); do
   echo "Preparing maintenance state push attempt $attempt/$max_attempts."
   git fetch origin main
-  git reset --hard origin/main
-  git clean -fd -- ops
+  # The runner is ephemeral. Start each retry from remote state without a destructive reset.
+  git checkout --detach origin/main
 
   node scripts/maintenance/run-cycle.mjs record \
     --max "${MAXIMUM_MAINTENANCE_CYCLES:-2400}" \
@@ -33,7 +33,6 @@ for attempt in $(seq 1 "$max_attempts"); do
   fi
 
   echo "Maintenance state push was rejected on attempt $attempt; refetching before retry." >&2
-  git reset --hard origin/main
   if [ "$attempt" -lt "$max_attempts" ]; then
     sleep $((attempt * 2))
   fi
