@@ -37,3 +37,4 @@
 - [x] Save a concise non-secret continuation audit summary in the repository
 - [x] Upgrade verified vulnerable direct dependencies and the pinned package-manager version with full regression checks
 - [x] Move project-level pnpm overrides and patch metadata into the supported workspace configuration
+- [x] Repair the Express routing regression introduced by the secure path-to-regexp constraint
