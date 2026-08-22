@@ -46,6 +46,19 @@ async function loadState() {
   }
 }
 
+async function loadHistory() {
+  try {
+    const raw = await readFile(historyPath, "utf8");
+    const lines = raw.trim().split("\n").filter(Boolean);
+    return lines.map((line) => JSON.parse(line));
+  } catch (error) {
+    if (error && typeof error === "object" && "code" in error && error.code === "ENOENT") {
+      return [];
+    }
+    throw error;
+  }
+}
+
 async function writeJsonAtomically(path, value) {
   await mkdir(dirname(path), { recursive: true });
   const temporaryPath = `${path}.tmp`;
@@ -73,10 +86,25 @@ async function record() {
   const state = await loadState();
   const now = new Date().toISOString();
   const status = option("status", "success");
+  const workflowRunId = option("run-id", "local");
   const allowedStatuses = new Set(["success", "failure", "cancelled", "skipped"]);
 
   if (!allowedStatuses.has(status)) {
     throw new Error(`Unsupported maintenance status: ${status}`);
+  }
+
+  const history = await loadHistory();
+  const existingEntry = history.find((entry) => entry.workflowRunId === workflowRunId);
+  if (existingEntry) {
+    print({
+      command: "record",
+      recorded: false,
+      reason: "workflow-run-already-recorded",
+      cycleCount: state.cycleCount,
+      maximumCycles,
+      existingEntry,
+    });
+    return;
   }
 
   if (state.cycleCount >= maximumCycles) {
@@ -89,7 +117,7 @@ async function record() {
     cycle,
     status,
     timestamp: now,
-    workflowRunId: option("run-id", "local"),
+    workflowRunId,
     commit: option("commit", "local"),
     workflow: option("workflow", "local"),
   };

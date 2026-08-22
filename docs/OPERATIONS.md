@@ -10,6 +10,8 @@ The `Continuous Integration` workflow runs on changes to `main`, pull requests, 
 
 The `Hourly Maintenance` workflow starts at minute 17 of each hour. It is intentionally bounded to **2,400 recorded cycles**. Before each cycle it checks `ops/maintenance-state.json`; after the limit is reached, later scheduled invocations exit without running validation. For each permitted cycle, the workflow retries dependency installation up to three times, performs the repository checks, verifies that the public dashboard responds, and appends a JSON line to `ops/maintenance-history.jsonl`.
 
+Maintenance recording is idempotent by GitHub workflow run identifier. A state-push retry always begins from the latest `main` branch and a run that is already present in the ledger cannot increment the cycle count a second time. This preserves one recorded cycle per workflow run even if a push acknowledgement is interrupted or a non-fast-forward retry is needed.
+
 Each permitted maintenance cycle also generates a normalized `pnpm audit` summary and uploads it as a 30-day GitHub Actions artifact. The summary preserves aggregate severity counts only; raw advisory details stay out of the repository history.
 
 ## State records
