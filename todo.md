@@ -33,6 +33,7 @@
 - [x] Implement verified reliability and security improvements found during this continuation cycle
 - [ ] Validate and record the continuation cycle in GitHub Actions
 - [x] Record the locally validated continuation cycle in the machine-readable maintenance state
+- [x] Preserve a non-secret inventory of accessible terminal and repository recovery assets
 - [x] Prevent superseded continuous-integration runs from accumulating in the GitHub Actions queue
 - [x] Document and quarantine the verified unavailable n8n endpoint without storing credentials
 - [x] Add a reproducible dependency-security report to the GitHub maintenance system
