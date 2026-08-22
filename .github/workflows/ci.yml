@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: continuous-integration-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   verify:
     name: Type check, test, and build
