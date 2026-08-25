@@ -57,3 +57,26 @@
 - [x] Research, produce, quality-check, and verify Drive upload for canonical Reel 0017
 - [ ] Reconfigure and verify the continuation schedule for autonomous low-credit execution
 - [ ] Research, produce, quality-check, and verify Drive upload for canonical Reel 0018
+
+## Current full-repair request
+
+- [ ] Audit and repair all incomplete repository code paths, stubs, TODO/FIXME items, imports, routes, and runtime failures
+- [ ] Audit and repair dependencies, lockfile, scripts, TypeScript/build/test configuration, and environment references
+- [ ] Audit and validate GitHub branches, remote divergence, pull requests, Actions workflows, and CI failures
+- [ ] Audit and validate all authorized connector/API integrations and application-facing adapters without exposing secrets
+- [ ] Factually inspect and validate available Gemini, Google, Antigravity, Datadog, and other relevant CLIs without forcing disconnected tools
+- [ ] Rebase the repaired repository onto the correct latest upstream and resolve any conflicts safely
+- [ ] Run full regression, build, runtime, integration, and GitHub validation after repairs
+- [ ] Repair and continue all reachable Hindi reel and recurring-schedule work from canonical checkpoints without duplicating verified reels
+- [ ] Persist final repair audit, checkpoint, and recovery state in the private GitHub repository and WebDev checkpoint
+- [ ] Verify the recurring schedule has actually fired successfully in its configured isolated mode before marking autonomous execution fully verified
+- [ ] Execute the confirmed independent audit streams
+- [ ] Integrate fixes sequentially and preserve all external blockers honestly
+
+## End of current full-repair request
+
+## Tracker correction note
+
+The accidental bulk of repetitive placeholder rows added during the latest scope expansion was removed from the active tracker and replaced with the concise, actionable items above. No committed project history or verified reel artifact was deleted.
+
+## End of tracker correction note

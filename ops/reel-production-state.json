@@ -40,7 +40,11 @@
         "id": "0017",
         "topic": "Semantic satiation: temporary strangeness of a heavily repeated word",
         "topicFingerprint": "semantic-satiation|word-repetition|meaning-access|N400",
-        "sourceFingerprint": ["PMCID:PMC2882703", "DOI:10.3389/fpsyg.2017.02117", "DOI:10.1038/s42003-024-06162-0"],
+        "sourceFingerprint": [
+          "PMCID:PMC2882703",
+          "DOI:10.3389/fpsyg.2017.02117",
+          "DOI:10.1038/s42003-024-06162-0"
+        ],
         "canonicalFolderId": "1OvDmCsqSgO18xRnjTchVjnag3e35O88d",
         "finalVideoId": "1TJcTTxncTbDVm332AW7Y-l0mNemoG7ia",
         "finalVideoSha256": "59932a76d39ab9fb7b30918302df2c928bad22f8f39ce4005efbc5a0cad7b70c",
@@ -110,7 +114,10 @@
   },
   "preservation": {
     "duplicateDriveRootsMustRemainUnmerged": true,
-    "duplicateDriveRootIds": ["1fKigp_hlEqqWB0F0DkMeKXTpMQXzPnrv", "1zidTGx6RHZZ4P8mCic8XDKSZBxhA0QdR"],
+    "duplicateDriveRootIds": [
+      "1fKigp_hlEqqWB0F0DkMeKXTpMQXzPnrv",
+      "1zidTGx6RHZZ4P8mCic8XDKSZBxhA0QdR"
+    ],
     "recordFailuresInsteadOfSkipping": true,
     "DriveIsPrimaryStorage": true,
     "malformedHistoricalRootItemMustRemainPreserved": "1js21Oh2CzzTsusFj7W28gWhIL0pOnsjk"
