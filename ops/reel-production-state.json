@@ -107,7 +107,7 @@
     "runAsNewTask": true,
     "agentTaskMode": "standard",
     "reportedRunMode": "ask_user",
-    "executionNote": "The platform returned ask_user as the run mode. The active schedule has a self-contained playbook, but its first firing must be checked before claiming that no prompt is required."
+    "executionNote": "Playbook and detail were updated after Reel 0018 partial preservation. The platform still returns ask_user as the run mode; its first firing must be checked before claiming that no prompt is required."
   },
   "preservation": {
     "duplicateDriveRootsMustRemainUnmerged": true,
