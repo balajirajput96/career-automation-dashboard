@@ -1,27 +1,44 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "auditAt": "2026-08-25T22:22:40Z",
   "maintenanceState": {
-    "cycleCountAtAudit": 7,
+    "cycleCountAtAudit": 85,
     "maximumCycles": 2400,
-    "lastRecordedStatus": "success"
+    "lastRecordedStatus": "success",
+    "lastRecordedWorkflowRun": "32886799499"
   },
   "latestWorkflowRecording": {
     "workflow": "Hourly Maintenance",
-    "runId": "32544936857",
+    "runId": "32886799499",
     "runStatus": "success",
-    "recordedCycle": 7,
-    "stateCommit": "9f1c2cb",
-    "recordedAt": "2026-08-22T01:59:18.508Z",
-    "verification": "The workflow's Record maintenance outcome job succeeded and committed the matching state and history entry to private GitHub main."
+    "recordedCycle": 85,
+    "verification": "The latest previously successful maintenance run recorded state and history on private GitHub main."
   },
-  "repository": {
-    "sourceOfTruth": "private GitHub main branch",
-    "maintenanceWorkflows": [
-      "Continuous Integration",
-      "Hourly Maintenance",
-      "Validate Maintenance Change"
-    ]
+  "currentRepairValidation": {
+    "rebase": {
+      "status": "success",
+      "base": "github/main",
+      "upstreamRangeIntegrated": "d2fe6d8..7048e15",
+      "resultCommit": "552888f"
+    },
+    "local": {
+      "typecheck": "success",
+      "tests": "6 passed",
+      "build": "success",
+      "dependencyAudit": "clean",
+      "runtimeRestart": "success; current server bound to port 3000"
+    }
   },
+  "reproducibleExternalFailures": [
+    {
+      "workflow": "Hourly Maintenance",
+      "runIds": ["32891443556", "32897281278", "32902583762", "32905777586"],
+      "job": "Check remaining maintenance budget",
+      "symptoms": "Failure within approximately five seconds; GitHub job API reports an empty steps array; raw job-log endpoint returns BlobNotFound; dependent jobs are skipped.",
+      "localReproduction": "node scripts/maintenance/run-cycle.mjs can-run --max 2400 returned proceed=true with cycleCount=85.",
+      "disposition": "Recorded as a GitHub runner/job-log availability failure, not a repository preflight logic failure. No workflow step was changed to hide or bypass the failure."
+    }
+  ],
   "integrationFindings": [
     {
       "name": "n8n API",
@@ -30,13 +47,18 @@
     },
     {
       "name": "Google Workspace CLI",
-      "verification": "CLI help and local command references were generated without accessing user files.",
-      "disposition": "Available for future Drive, Docs, Sheets, and Slides work when explicitly needed."
+      "verification": "Available and used for canonical Drive operations.",
+      "disposition": "Retained for Drive-backed reel production."
     },
     {
       "name": "GitHub Dependabot alerts API",
       "verification": "The current token returned HTTP 403 for alert enumeration.",
-      "disposition": "The repository now produces a local pnpm audit summary artifact during maintenance instead of assuming alert access."
+      "disposition": "The repository uses a local pnpm audit summary instead of assuming alert access."
+    },
+    {
+      "name": "Gemini, Jules, Antigravity, Datadog CLIs",
+      "verification": "Commands were not found in the authorized environment.",
+      "disposition": "Not force-connected and not represented as operational."
     }
   ],
   "securityBoundary": "No credentials, session cookies, user data, environment values, or raw package advisory details are stored in this record."
