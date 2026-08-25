@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "project": "3000_HINDI_RESEARCH_REELS",
-  "checkpointedAt": "2026-08-25T12:58:00Z",
+  "checkpointedAt": "2026-08-25T13:04:00Z",
   "canonicalDrive": {
     "rootFolderId": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
     "activeBatchFolderId": "1hz2gSOMAWzfG0_vasKunhxG8rhscD7U4",
@@ -68,7 +68,22 @@
     "resumeAuthority": "checkpoint_after_reel_0017_20260825T125800Z.json (untrashed canonical Drive root file)"
   },
   "failureAndRetryRecords": {
-    "open": [],
+    "open": [
+      {
+        "reelId": "0018",
+        "status": "PARTIALLY_PREPARED_NOT_COMPLETE",
+        "topic": "Tip-of-the-tongue: temporary word retrieval difficulty with a feeling of knowing",
+        "topicFingerprint": "tip-of-the-tongue|word-retrieval|partial-phonology|metacognition",
+        "canonicalPartialFolderId": "1h7OdqXbSxDGvR7Rv-0gWd_0O-M27BR5c",
+        "partialArtifactCount": 7,
+        "partialDriveReadbackVerified": true,
+        "blockers": [
+          "Required distinct Reel 0018 master visual could not be generated because the free daily image quota was exhausted (20/20).",
+          "Initial Hindi narration duration is 69.00 seconds and must be shortened before 60-second assembly."
+        ],
+        "recoveryPlan": "Resume from R0018_RESEARCH_NOTES.md, R0018_FACT_CHECK.json, script, captions, plan, narration, and R0018_PRODUCTION_BLOCKER.json. Generate a new visual after quota reset, shorten narration, then complete all QC and Drive gates."
+      }
+    ],
     "resolved": [
       {
         "reelId": "0016",
