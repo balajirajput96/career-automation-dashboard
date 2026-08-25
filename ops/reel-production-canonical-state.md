@@ -4,9 +4,9 @@
 
 The canonical Google Drive workspace is `3000_HINDI_RESEARCH_REELS` with root ID `1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj`. Its active `Batch_001` folder is `1hz2gSOMAWzfG0_vasKunhxG8rhscD7U4`.
 
-The verified checkpoint lineage now records **16** complete, read-back-verified Drive packages for Reels `0001` through `0016`. Reel 0016 is `QC_PASSED_AND_DRIVE_READBACK_VERIFIED`; its final video is Drive file `1PkT5UIwrgOZLNNzaibiVsnqdGGzWdZSY`, and its package folder is `1BbOyDg1cOr4V5R1V25jZ7FP6jAjqxsc6`.
+The verified checkpoint lineage now records **17** complete, read-back-verified Drive packages for Reels `0001` through `0017`. Reel 0017 is `QC_PASSED_AND_DRIVE_READBACK_VERIFIED`; its final video is Drive file `1TJcTTxncTbDVm332AW7Y-l0mNemoG7ia`, and its package folder is `1OvDmCsqSgO18xRnjTchVjnag3e35O88d`.
 
-The current resume authority is `checkpoint_after_reel_0016_schedule_20260825T123900Z.json` (Drive file `1w2nIxhysW8uPcvu8uSPBlxsHL964KwAT`). It instructs the pipeline to resume at **Reel 0017** in `Batch_001`. The preceding Reel 0016 completion checkpoint is Drive file `1rRQynkgEgR36Q5Ii1BXc-nK4ssLxcscw`.
+The current resume authority is `checkpoint_after_reel_0017_20260825T125800Z.json` (Drive file `1c9TfExMZpx34rd7moF04LBYDfUekYmfS`). It instructs the pipeline to resume at **Reel 0018** in `Batch_001`. The preceding Reel 0016 checkpoints remain preserved as historical evidence.
 
 ## Preservation rules
 

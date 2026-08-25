@@ -1,35 +1,86 @@
 {
+  "schemaVersion": 2,
   "project": "3000_HINDI_RESEARCH_REELS",
-  "checkpointedAt": "2026-08-25T12:37:00Z",
+  "checkpointedAt": "2026-08-25T12:58:00Z",
   "canonicalDrive": {
     "rootFolderId": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
     "activeBatchFolderId": "1hz2gSOMAWzfG0_vasKunhxG8rhscD7U4",
-    "latestReelFolderId": "1BbOyDg1cOr4V5R1V25jZ7FP6jAjqxsc6",
-    "latestFinalVideoId": "1PkT5UIwrgOZLNNzaibiVsnqdGGzWdZSY"
+    "activeBatch": "Batch_001",
+    "batchCapacity": 30,
+    "totalBatches": 100,
+    "totalTarget": 3000
   },
   "progress": {
-    "verifiedReelCount": 16,
-    "verifiedRange": "0001-0016",
-    "latestVerifiedReel": "0016",
-    "nextReel": "0017",
+    "verifiedReelCount": 17,
+    "verifiedRange": "0001-0017",
+    "latestVerifiedReel": "0017",
+    "nextReel": "0018",
     "nextBatch": "Batch_001",
-    "totalTarget": 3000,
     "doNotRegenerateVerifiedReels": true
   },
+  "deduplicationLedger": {
+    "completionAuthority": "Only canonical packages with final video, QC, and Drive readback count as complete.",
+    "discoveryRule": "Search the full Drive archive by title, English/Hindi topic terms, and known synonyms before selecting a new angle.",
+    "sourceFingerprintRule": "Record source URLs/DOIs or a stable evidence-topic fingerprint for each new completed reel. Never invent fingerprints for recovered packages.",
+    "historicalCoverage": {
+      "verifiedIds": "0001-0015",
+      "status": "Preserved from canonical checkpoint_snapshot_20260825T134500.json; individual topics and source fingerprints were not backfilled into this concise repository copy. Consult their canonical Drive packages rather than fabricating fields."
+    },
+    "completedReels": [
+      {
+        "id": "0016",
+        "topic": "Interoception, affect, and context-sensitive interpretation of body signals",
+        "topicFingerprint": "interoception|body-signals|affect|contextual-interpretation",
+        "sourceFingerprint": ["PMCID:PMC11222051", "PMCID:PMC7419655"],
+        "canonicalFolderId": "1BbOyDg1cOr4V5R1V25jZ7FP6jAjqxsc6",
+        "finalVideoId": "1PkT5UIwrgOZLNNzaibiVsnqdGGzWdZSY",
+        "status": "complete_verified_drive"
+      },
+      {
+        "id": "0017",
+        "topic": "Semantic satiation: temporary strangeness of a heavily repeated word",
+        "topicFingerprint": "semantic-satiation|word-repetition|meaning-access|N400",
+        "sourceFingerprint": ["PMCID:PMC2882703", "DOI:10.3389/fpsyg.2017.02117", "DOI:10.1038/s42003-024-06162-0"],
+        "canonicalFolderId": "1OvDmCsqSgO18xRnjTchVjnag3e35O88d",
+        "finalVideoId": "1TJcTTxncTbDVm332AW7Y-l0mNemoG7ia",
+        "finalVideoSha256": "59932a76d39ab9fb7b30918302df2c928bad22f8f39ce4005efbc5a0cad7b70c",
+        "finalPackageArtifactCount": 14,
+        "status": "complete_verified_drive"
+      }
+    ]
+  },
   "latestReel": {
-    "id": "Reel_0016",
-    "titleHi": "शरीर का अलार्म, फैसला नहीं",
-    "topic": "Interoception, affect, and context-sensitive interpretation of body signals",
+    "id": "Reel_0017",
+    "titleHi": "शब्द बार-बार बोलने पर अजीब क्यों लगता है?",
+    "topic": "Semantic satiation: the temporary strangeness of a heavily repeated word",
     "durationSeconds": 60.0,
-    "videoSha256": "a0cb41b77ae5f18c097e3e8f0a923838fbb7b2b6f6463243c12e19de3fde4a5b",
-    "driveReadbackRecordId": "1GsLZqKfiznVkm05XpTCh3nudq_JjHwhx",
+    "videoSha256": "59932a76d39ab9fb7b30918302df2c928bad22f8f39ce4005efbc5a0cad7b70c",
+    "canonicalFolderId": "1OvDmCsqSgO18xRnjTchVjnag3e35O88d",
+    "finalVideoId": "1TJcTTxncTbDVm332AW7Y-l0mNemoG7ia",
+    "finalPackageArtifactCount": 14,
     "status": "QC_PASSED_AND_DRIVE_READBACK_VERIFIED",
-    "fallback": "One native 10-second opening clip plus documented original 2.5D motion-graphics fallback after the daily free native-video quota was exhausted."
+    "fallback": "Original generated master reference with disclosed deterministic 2.5D motion-graphics assembly; it is not represented as fully native AI video."
   },
   "canonicalCheckpointFiles": {
     "reel0016Completion": "1rRQynkgEgR36Q5Ii1BXc-nK4ssLxcscw",
-    "scheduleAwareResumeCheckpoint": "1w2nIxhysW8uPcvu8uSPBlxsHL964KwAT",
-    "resumeAuthority": "scheduleAwareResumeCheckpoint"
+    "reel0016ScheduleAware": "1w2nIxhysW8uPcvu8uSPBlxsHL964KwAT",
+    "reel0017ResumeCheckpoint": "1c9TfExMZpx34rd7moF04LBYDfUekYmfS",
+    "resumeAuthority": "checkpoint_after_reel_0017_20260825T125800Z.json (untrashed canonical Drive root file)"
+  },
+  "failureAndRetryRecords": {
+    "open": [],
+    "resolved": [
+      {
+        "reelId": "0016",
+        "condition": "Free native-video quota exhausted after one opening clip",
+        "resolution": "Used and disclosed an original deterministic 2.5D motion-graphics fallback."
+      },
+      {
+        "reelId": "0017",
+        "condition": "Initial narration was 70.24 seconds",
+        "resolution": "Shortened evidence-bounded script and regenerated narration to 58.04 seconds before a 60-second render."
+      }
+    ]
   },
   "continuationSchedule": {
     "taskUid": "4ymX51GERkHs9tfShoDk8s",
@@ -41,11 +92,13 @@
     "runAsNewTask": true,
     "agentTaskMode": "standard",
     "reportedRunMode": "ask_user",
-    "executionNote": "The platform returned ask_user as the run mode. The schedule is active and has a self-contained playbook, but autonomous execution must be verified at its first firing before claiming it needs no prompt."
+    "executionNote": "The platform returned ask_user as the run mode. The active schedule has a self-contained playbook, but its first firing must be checked before claiming that no prompt is required."
   },
   "preservation": {
     "duplicateDriveRootsMustRemainUnmerged": true,
+    "duplicateDriveRootIds": ["1fKigp_hlEqqWB0F0DkMeKXTpMQXzPnrv", "1zidTGx6RHZZ4P8mCic8XDKSZBxhA0QdR"],
     "recordFailuresInsteadOfSkipping": true,
-    "DriveIsPrimaryStorage": true
+    "DriveIsPrimaryStorage": true,
+    "malformedHistoricalRootItemMustRemainPreserved": "1js21Oh2CzzTsusFj7W28gWhIL0pOnsjk"
   }
 }

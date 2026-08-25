@@ -54,5 +54,6 @@
 - [x] Research, produce, quality-check, and verify Drive upload for canonical Reel 0016
 - [x] Create persistent reel metadata, batch checkpoints, and deduplication records
 - [x] Configure bounded recurring continuation for the verified reel-production pipeline
-- [ ] Research, produce, quality-check, and verify Drive upload for canonical Reel 0017
+- [x] Research, produce, quality-check, and verify Drive upload for canonical Reel 0017
 - [ ] Reconfigure and verify the continuation schedule for autonomous low-credit execution
+- [ ] Research, produce, quality-check, and verify Drive upload for canonical Reel 0018
