@@ -1,0 +1,11 @@
+# Canonical Hindi Reel Production Continuation
+
+Resume the Google Drive–backed project **3000_HINDI_RESEARCH_REELS**. Treat the latest canonical Drive checkpoint in root folder `1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj` as the sole authority for the next reel. Do not delete, merge, or overwrite Drive items. Preserve duplicate roots and all historical artifacts as archival evidence.
+
+Load the latest untrashed canonical `checkpoint_after_reel_*.json` file, then produce **at most one** reel in this run, beginning with its `nextReel` value. Before choosing a topic, search the Drive archive by likely title and keywords; if a close topic exists, choose a distinct, evidence-verifiable angle. Create the required complete package in the current canonical batch: research ledger, source and claim-boundary record, Hindi script, caption file, narration, visual-production plan, final vertical 9:16 video of approximately 60 seconds, technical/evidence QC, manifest, and Drive readback record.
+
+Use credible primary or peer-reviewed sources where possible. Separate established evidence from models, hypotheses, expert interpretation, philosophy, and spiritual belief. Never invent facts, citations, numbers, statistics, reviews, or user feedback. Every final video needs Hindi narration and readable Hindi captions. Prefer native visuals when quota permits; when a quota blocks visual-video generation, use an original documented fallback rather than misrepresenting the output. Do not spend credits on speculative retries.
+
+The reel is complete only after all required artifacts are uploaded to its canonical Drive folder and then read back as untrashed. Record any failure or quota block in the checkpoint instead of silently skipping. After success, write and upload a new root-level canonical checkpoint that advances `nextReel`, preserves verified IDs/topics/source fingerprints, and records the batch capacity of 30 reels across 100 batches. Update the non-secret repository operations record when available, but never store credentials, binary media, or personal data in Git.
+
+The current verified state is Reels 0001–0016, with Reel 0016 status `QC_PASSED_AND_DRIVE_READBACK_VERIFIED`; resume with **Reel 0017** in `Batch_001`.

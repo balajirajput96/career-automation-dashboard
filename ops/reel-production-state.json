@@ -1,0 +1,51 @@
+{
+  "project": "3000_HINDI_RESEARCH_REELS",
+  "checkpointedAt": "2026-08-25T12:37:00Z",
+  "canonicalDrive": {
+    "rootFolderId": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "activeBatchFolderId": "1hz2gSOMAWzfG0_vasKunhxG8rhscD7U4",
+    "latestReelFolderId": "1BbOyDg1cOr4V5R1V25jZ7FP6jAjqxsc6",
+    "latestFinalVideoId": "1PkT5UIwrgOZLNNzaibiVsnqdGGzWdZSY"
+  },
+  "progress": {
+    "verifiedReelCount": 16,
+    "verifiedRange": "0001-0016",
+    "latestVerifiedReel": "0016",
+    "nextReel": "0017",
+    "nextBatch": "Batch_001",
+    "totalTarget": 3000,
+    "doNotRegenerateVerifiedReels": true
+  },
+  "latestReel": {
+    "id": "Reel_0016",
+    "titleHi": "शरीर का अलार्म, फैसला नहीं",
+    "topic": "Interoception, affect, and context-sensitive interpretation of body signals",
+    "durationSeconds": 60.0,
+    "videoSha256": "a0cb41b77ae5f18c097e3e8f0a923838fbb7b2b6f6463243c12e19de3fde4a5b",
+    "driveReadbackRecordId": "1GsLZqKfiznVkm05XpTCh3nudq_JjHwhx",
+    "status": "QC_PASSED_AND_DRIVE_READBACK_VERIFIED",
+    "fallback": "One native 10-second opening clip plus documented original 2.5D motion-graphics fallback after the daily free native-video quota was exhausted."
+  },
+  "canonicalCheckpointFiles": {
+    "reel0016Completion": "1rRQynkgEgR36Q5Ii1BXc-nK4ssLxcscw",
+    "scheduleAwareResumeCheckpoint": "1w2nIxhysW8uPcvu8uSPBlxsHL964KwAT",
+    "resumeAuthority": "scheduleAwareResumeCheckpoint"
+  },
+  "continuationSchedule": {
+    "taskUid": "4ymX51GERkHs9tfShoDk8s",
+    "name": "Daily Hindi Reel Production Continuation",
+    "cron": "0 0 4 * * *",
+    "timezone": "Asia/Calcutta",
+    "expiresAt": "2026-12-03T04:00:00Z",
+    "status": "active",
+    "runAsNewTask": true,
+    "agentTaskMode": "standard",
+    "reportedRunMode": "ask_user",
+    "executionNote": "The platform returned ask_user as the run mode. The schedule is active and has a self-contained playbook, but autonomous execution must be verified at its first firing before claiming it needs no prompt."
+  },
+  "preservation": {
+    "duplicateDriveRootsMustRemainUnmerged": true,
+    "recordFailuresInsteadOfSkipping": true,
+    "DriveIsPrimaryStorage": true
+  }
+}
