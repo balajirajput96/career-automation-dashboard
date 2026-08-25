@@ -31,6 +31,14 @@
   },
   "reproducibleExternalFailures": [
     {
+      "workflow": "Continuous Integration",
+      "runIds": ["32905646436", "32905899128"],
+      "job": "Type check, test, and build",
+      "symptoms": "Failure within approximately five seconds; GitHub job API reports an empty steps array; raw job-log endpoint is unavailable.",
+      "localReproduction": "The same commit passed pnpm run check, pnpm test (6 tests), pnpm run build, and git diff --check locally.",
+      "disposition": "Recorded as a GitHub runner/job-log startup blocker. The failed run was rerun once and failed identically; no code change was made to mask it."
+    },
+    {
       "workflow": "Hourly Maintenance",
       "runIds": ["32891443556", "32897281278", "32902583762", "32905777586"],
       "job": "Check remaining maintenance budget",
