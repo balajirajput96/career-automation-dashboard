@@ -75,13 +75,12 @@
         "topic": "Tip-of-the-tongue: temporary word retrieval difficulty with a feeling of knowing",
         "topicFingerprint": "tip-of-the-tongue|word-retrieval|partial-phonology|metacognition",
         "canonicalPartialFolderId": "1h7OdqXbSxDGvR7Rv-0gWd_0O-M27BR5c",
-        "partialArtifactCount": 7,
+        "partialArtifactCount": 11,
         "partialDriveReadbackVerified": true,
         "blockers": [
-          "Required distinct Reel 0018 master visual could not be generated because the free daily image quota was exhausted (20/20).",
-          "Initial Hindi narration duration is 69.00 seconds and must be shortened before 60-second assembly."
+          "Required distinct Reel 0018 master visual could not be generated because the free daily image quota was exhausted (20/20)."
         ],
-        "recoveryPlan": "Resume from R0018_RESEARCH_NOTES.md, R0018_FACT_CHECK.json, script, captions, plan, narration, and R0018_PRODUCTION_BLOCKER.json. Generate a new visual after quota reset, shorten narration, then complete all QC and Drive gates."
+        "recoveryPlan": "Resume from R0018_RESEARCH_NOTES.md, R0018_FACT_CHECK.json, shortened script/captions, 56.68-second narration, plan, and R0018_PRODUCTION_BLOCKER_v2.json. Generate a new visual after quota reset, then complete all QC and Drive gates."
       }
     ],
     "resolved": [
